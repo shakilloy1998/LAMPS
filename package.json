@@ -1,0 +1,55 @@
+{
+  "name": "lamps",
+  "productName": "LAMPS",
+  "version": "1.0.0",
+  "description": "Lightweight Windows desktop development environment manager for Apache, MySQL, and PHP",
+  "main": "main.js",
+  "author": "LAMPS Team",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.lamps.app",
+    "productName": "LAMPS",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "LAMPS",
+      "artifactName": "LAMPS-Setup-${version}.exe",
+      "include": "build/installer.nsh"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "extraFiles": [
+      {
+        "from": "bin",
+        "to": "bin"
+      }
+    ]
+  },
+  "devDependencies": {
+    "electron": "^40.5.0",
+    "electron-builder": "^26.0.12"
+  }
+}

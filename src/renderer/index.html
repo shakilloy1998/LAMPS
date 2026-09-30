@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMPS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Top App Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="app-brand">
+                    <div class="brand-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 3h6l2 6H7l2-6z"></path>
+                            <path d="M12 9v7"></path>
+                            <path d="M10 16h4"></path>
+                            <path d="M8 20h8"></path>
+                            <circle cx="12" cy="11" r="2" fill="currentColor"></circle>
+                        </svg>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-name">LAMPS</span>
+                        <span class="brand-tag">v1.0.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <button id="btn-header-logs" class="btn-win btn-subtle" title="Log Viewer (Ctrl+L)">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    <span>Logs</span>
+                </button>
+                <button id="btn-header-settings" class="btn-win btn-subtle" title="Settings (Ctrl+,)">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    <span>Settings</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Toolbar -->
+        <div class="app-toolbar">
+            <div class="toolbar-group service-controls">
+                <button id="btn-start-all" class="btn-win btn-primary" title="Start MySQL and Apache">
+                    <span class="icon-play">▶</span> Start All
+                </button>
+                <button id="btn-stop-all" class="btn-win" title="Stop Apache and MySQL">
+                    <span class="icon-stop">■</span> Stop All
+                </button>
+                <button id="btn-restart-all" class="btn-win" title="Restart All Services (Ctrl+Shift+R)">
+                    <span class="icon-restart">↻</span> Restart All
+                </button>
+            </div>
+
+            <div class="toolbar-group quick-links">
+                <button id="btn-open-localhost" class="btn-win" title="Open localhost in default browser">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span>localhost</span>
+                </button>
+                <button id="btn-open-docroot" class="btn-win" title="Open Document Root in File Explorer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span>Document Root</span>
+                </button>
+                <button id="btn-open-terminal" class="btn-win" title="Open Terminal in Document Root">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="4 17 10 11 4 5"></polyline>
+                        <line x1="12" y1="19" x2="20" y2="19"></line>
+                    </svg>
+                    <span>Terminal</span>
+                </button>
+                <button id="btn-open-packages" class="btn-win" title="Download & Install Official Packages">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                    <span>Packages</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Progress Banner -->
+        <div id="action-banner" class="action-banner hidden">
+            <span class="spinner"></span>
+            <span id="banner-text">Starting services...</span>
+        </div>
+
+        <!-- Quick Setup Banner if stack is incomplete -->
+        <div id="setup-stack-banner" class="setup-stack-banner hidden">
+            <div class="setup-banner-left">
+                <div class="setup-banner-icon">⚡</div>
+                <div class="setup-banner-info">
+                    <div class="setup-banner-title">Setup Default Web Stack</div>
+                    <div class="setup-banner-desc">Download and configure the official default stack (Apache 2.4.68, PHP 8.5, and MySQL 26.7 / 9.7 LTS) into LAMPS in one click.</div>
+                </div>
+            </div>
+            <button id="btn-banner-download-stack" class="btn-win btn-primary btn-banner-action">Download Default Stack</button>
+        </div>
+
+        <!-- Main Services Grid -->
+        <main class="services-container">
+            <!-- Apache Service Box -->
+            <section class="service-box" id="service-box-apache">
+                <div class="service-box-header">
+                    <div class="service-title-area">
+                        <span class="status-indicator" id="apache-indicator"></span>
+                        <h2 class="service-name">Apache</h2>
+                        <span class="status-text" id="apache-status-text">Stopped</span>
+                    </div>
+                    <div class="service-header-actions">
+                        <span class="port-badge" id="apache-port-badge" title="Click to change port">Port: 80</span>
+                    </div>
+                </div>
+
+                <div class="service-box-body">
+                    <div class="meta-row">
+                        <span class="meta-label">Version:</span>
+                        <select id="apache-version-select" class="win-select" title="Select installed Apache version"></select>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-label">PID:</span>
+                        <span class="meta-value" id="apache-pid-text">—</span>
+                    </div>
+                </div>
+
+                <div class="service-box-footer">
+                    <div class="action-buttons-main">
+                        <button id="btn-apache-start" class="btn-win btn-small btn-success">Start</button>
+                        <button id="btn-apache-stop" class="btn-win btn-small" disabled>Stop</button>
+                        <button id="btn-apache-restart" class="btn-win btn-small">Restart</button>
+                    </div>
+                    <div class="action-buttons-tools">
+                        <button id="btn-apache-config" class="btn-win btn-small btn-subtle" title="Open httpd.conf">Config</button>
+                        <button id="btn-apache-logs" class="btn-win btn-small btn-subtle" title="View Apache Logs">Logs</button>
+                        <button id="btn-apache-dir" class="btn-win btn-small btn-subtle" title="Open Apache Directory">Folder</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MySQL Service Box -->
+            <section class="service-box" id="service-box-mysql">
+                <div class="service-box-header">
+                    <div class="service-title-area">
+                        <span class="status-indicator" id="mysql-indicator"></span>
+                        <h2 class="service-name">MySQL / MariaDB</h2>
+                        <span class="status-text" id="mysql-status-text">Stopped</span>
+                    </div>
+                    <div class="service-header-actions">
+                        <span class="port-badge" id="mysql-port-badge" title="Click to change port">Port: 3306</span>
+                    </div>
+                </div>
+
+                <div class="service-box-body">
+                    <div class="meta-row">
+                        <span class="meta-label">Version:</span>
+                        <select id="mysql-version-select" class="win-select" title="Select installed MySQL/MariaDB version"></select>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-label">PID:</span>
+                        <span class="meta-value" id="mysql-pid-text">—</span>
+                    </div>
+                </div>
+
+                <div class="service-box-footer">
+                    <div class="action-buttons-main">
+                        <button id="btn-mysql-start" class="btn-win btn-small btn-success">Start</button>
+                        <button id="btn-mysql-stop" class="btn-win btn-small" disabled>Stop</button>
+                        <button id="btn-mysql-restart" class="btn-win btn-small">Restart</button>
+                    </div>
+                    <div class="action-buttons-tools">
+                        <button id="btn-mysql-cli" class="btn-win btn-small btn-subtle" title="Open MySQL Command-Line Client">CLI</button>
+                        <button id="btn-mysql-config" class="btn-win btn-small btn-subtle" title="Open my.ini / my.cnf">Config</button>
+                        <button id="btn-mysql-data" class="btn-win btn-small btn-subtle" title="Open MySQL Data Directory">Data</button>
+                        <button id="btn-mysql-logs" class="btn-win btn-small btn-subtle" title="View MySQL Error Logs">Logs</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHP Management Box -->
+            <section class="service-box" id="service-box-php">
+                <div class="service-box-header">
+                    <div class="service-title-area">
+                        <span class="status-indicator status-ready"></span>
+                        <h2 class="service-name">PHP Engine</h2>
+                        <span class="status-text" id="php-active-version-text">PHP 8.x</span>
+                    </div>
+                    <div class="service-header-actions">
+                        <span class="badge-accent">Multi-Version</span>
+                    </div>
+                </div>
+
+                <div class="service-box-body">
+                    <div class="meta-row">
+                        <span class="meta-label">Active PHP:</span>
+                        <select id="php-version-select" class="win-select" title="Select active PHP version"></select>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-label">Loaded ini:</span>
+                        <span class="meta-value meta-path" id="php-ini-path-text" title="Active php.ini path">—</span>
+                    </div>
+                </div>
+
+                <div class="service-box-footer">
+                    <div class="action-buttons-main">
+                        <button id="btn-php-extensions" class="btn-win btn-small" title="View Loaded PHP Extensions">Extensions</button>
+                        <button id="btn-php-info" class="btn-win btn-small" title="View PHP CLI Information">php -v</button>
+                    </div>
+                    <div class="action-buttons-tools">
+                        <button id="btn-php-ini" class="btn-win btn-small btn-subtle" title="Open active php.ini in default editor">php.ini</button>
+                        <button id="btn-php-dir" class="btn-win btn-small btn-subtle" title="Open active PHP directory">Folder</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Developer Mode Diagnostic Box (Toggleable) -->
+            <section class="service-box dev-mode-box hidden" id="dev-mode-box">
+                <div class="service-box-header">
+                    <div class="service-title-area">
+                        <span class="status-indicator status-dev"></span>
+                        <h2 class="service-name">Developer Diagnostics</h2>
+                    </div>
+                    <button id="btn-close-dev-box" class="btn-win btn-small btn-subtle">Hide</button>
+                </div>
+                <div class="service-box-body dev-info-grid" id="dev-info-grid">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Status Bar -->
+        <footer class="app-statusbar">
+            <div class="statusbar-left">
+                <span id="sb-apache" class="sb-item">Apache: <strong id="sb-apache-status">Stopped</strong></span>
+                <span class="sb-divider">|</span>
+                <span id="sb-mysql" class="sb-item">MySQL: <strong id="sb-mysql-status">Stopped</strong></span>
+                <span class="sb-divider">|</span>
+                <span id="sb-php" class="sb-item">PHP: <strong id="sb-php-version">—</strong></span>
+            </div>
+            <div class="statusbar-center">
+                <span class="sb-item" id="sb-docroot" title="Document root">Doc: C:\LAMPS\www</span>
+            </div>
+            <div class="statusbar-right">
+                <span class="sb-hint">Ctrl+, Settings</span>
+                <span class="sb-divider">|</span>
+                <span class="sb-hint">Ctrl+L Logs</span>
+            </div>
+        </footer>
+
+        <!-- Settings Modal -->
+        <div id="modal-settings" class="win-modal-overlay hidden">
+            <div class="win-modal win-modal-large">
+                <div class="win-modal-header">
+                    <div class="modal-title">LAMPS Settings</div>
+                    <button class="modal-close-btn" id="btn-close-settings">&times;</button>
+                </div>
+
+                <div class="settings-layout">
+                    <!-- Settings Sidebar Tabs -->
+                    <div class="settings-nav">
+                        <button class="nav-tab active" data-tab="tab-general">General</button>
+                        <button class="nav-tab" data-tab="tab-apache">Apache</button>
+                        <button class="nav-tab" data-tab="tab-php">PHP</button>
+                        <button class="nav-tab" data-tab="tab-mysql">MySQL</button>
+                        <button class="nav-tab" data-tab="tab-ports">Ports</button>
+                        <button class="nav-tab" data-tab="tab-packages">Packages & Downloads</button>
+                        <button class="nav-tab" data-tab="tab-advanced">Advanced</button>
+                    </div>
+
+                    <!-- Settings Tab Content Area -->
+                    <div class="settings-content">
+                        <!-- General Tab -->
+                        <div class="tab-pane active" id="tab-general">
+                            <h3 class="settings-group-title">Environment Paths</h3>
+                            <div class="form-row">
+                                <label for="setting-docroot">Document Root (Web Directory):</label>
+                                <div class="input-with-button">
+                                    <input type="text" id="setting-docroot" class="win-input" spellcheck="false">
+                                    <button id="btn-browse-docroot" class="btn-win">Browse...</button>
+                                </div>
+                                <span class="input-tip">All websites and PHP files in this directory can be accessed via http://localhost</span>
+                            </div>
+
+                            <h3 class="settings-group-title">System Behavior</h3>
+                            <div class="form-checkbox-row">
+                                <input type="checkbox" id="setting-minimize-tray">
+                                <label for="setting-minimize-tray">Minimize to system tray when closing the window</label>
+                            </div>
+                            <div class="form-checkbox-row">
+                                <input type="checkbox" id="setting-start-with-windows">
+                                <label for="setting-start-with-windows">Start LAMPS automatically with Windows</label>
+                            </div>
+                            <div class="form-checkbox-row">
+                                <input type="checkbox" id="setting-autostart-services">
+                                <label for="setting-autostart-services">Automatically start services when LAMPS launches</label>
+                            </div>
+
+                            <h3 class="settings-group-title">Appearance</h3>
+                            <div class="form-row">
+                                <label for="setting-theme">Application Theme:</label>
+                                <select id="setting-theme" class="win-select">
+                                    <option value="system">Follow Windows System Theme</option>
+                                    <option value="light">Light Mode</option>
+                                    <option value="dark">Dark Mode</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Apache Tab -->
+                        <div class="tab-pane" id="tab-apache">
+                            <h3 class="settings-group-title">Apache Configuration</h3>
+                            <div class="form-row">
+                                <label for="setting-apache-version">Active Apache Installation:</label>
+                                <select id="setting-apache-version" class="win-select"></select>
+                            </div>
+                            <div class="form-row form-row-inline">
+                                <div class="col-half">
+                                    <label for="setting-apache-http-port">HTTP Port:</label>
+                                    <input type="number" id="setting-apache-http-port" class="win-input" min="1" max="65535">
+                                </div>
+                                <div class="col-half">
+                                    <label for="setting-apache-ssl-port">HTTPS (SSL) Port:</label>
+                                    <input type="number" id="setting-apache-ssl-port" class="win-input" min="1" max="65535">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <label>Custom Apache Directories:</label>
+                                <ul id="list-custom-apache" class="custom-paths-list"></ul>
+                                <button id="btn-add-custom-apache" class="btn-win btn-small">+ Add Apache Folder...</button>
+                            </div>
+                        </div>
+
+                        <!-- PHP Tab -->
+                        <div class="tab-pane" id="tab-php">
+                            <h3 class="settings-group-title">PHP Versions</h3>
+                            <div class="form-row">
+                                <label for="setting-php-version">Active PHP Version:</label>
+                                <select id="setting-php-version" class="win-select"></select>
+                            </div>
+
+                            <h3 class="settings-group-title">Custom PHP Directories</h3>
+                            <div class="form-row">
+                                <ul id="list-custom-php" class="custom-paths-list"></ul>
+                                <button id="btn-add-custom-php" class="btn-win btn-small">+ Add PHP Folder...</button>
+                            </div>
+                        </div>
+
+                        <!-- MySQL Tab -->
+                        <div class="tab-pane" id="tab-mysql">
+                            <h3 class="settings-group-title">MySQL / MariaDB Configuration</h3>
+                            <div class="form-row">
+                                <label for="setting-mysql-version">Active MySQL/MariaDB Installation:</label>
+                                <select id="setting-mysql-version" class="win-select"></select>
+                            </div>
+                            <div class="form-row">
+                                <label for="setting-mysql-port">MySQL Port:</label>
+                                <input type="number" id="setting-mysql-port" class="win-input" min="1" max="65535" style="max-width: 150px;">
+                            </div>
+                            <h3 class="settings-group-title">Custom MySQL Directories</h3>
+                            <div class="form-row">
+                                <ul id="list-custom-mysql" class="custom-paths-list"></ul>
+                                <button id="btn-add-custom-mysql" class="btn-win btn-small">+ Add MySQL Folder...</button>
+                            </div>
+                        </div>
+
+                        <!-- Ports Tab -->
+                        <div class="tab-pane" id="tab-ports">
+                            <h3 class="settings-group-title">Port Inspector & Conflict Detection</h3>
+                            <p class="input-tip">Test and verify whether ports are currently free or occupied by other applications.</p>
+                            <div class="ports-table-container">
+                                <table class="ports-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Service</th>
+                                            <th>Configured Port</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ports-table-body">
+                                        <!-- Populated dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button id="btn-refresh-ports" class="btn-win btn-small" style="margin-top: 10px;">Re-check Ports</button>
+                        </div>
+
+                        <!-- Packages & Downloads Tab -->
+                        <div class="tab-pane" id="tab-packages">
+                            <h3 class="settings-group-title">Official Windows Web Stack Packages</h3>
+                            <p class="input-tip">Download pre-configured stable binaries directly into LAMPS's own bin folder.</p>
+                            <div id="packages-list" class="packages-list-container">
+                                <!-- Rendered dynamically by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Advanced Tab -->
+                        <div class="tab-pane" id="tab-advanced">
+                            <h3 class="settings-group-title">Developer & Diagnostics</h3>
+                            <div class="form-checkbox-row">
+                                <input type="checkbox" id="setting-developer-mode">
+                                <label for="setting-developer-mode">Enable Developer Mode & Diagnostics Panel</label>
+                            </div>
+                            <h3 class="settings-group-title">Storage & Configuration</h3>
+                            <div class="form-row">
+                                <label>Configuration File Location:</label>
+                                <code id="setting-config-filepath" class="path-display">%APPDATA%\LAMPS\config.json</code>
+                                <div style="margin-top: 8px;">
+                                    <button id="btn-open-config-folder" class="btn-win btn-small">Open AppData Folder</button>
+                                    <button id="btn-reset-config" class="btn-win btn-small btn-danger" style="margin-left: 8px;">Reset to Defaults</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="win-modal-footer">
+                    <button id="btn-save-settings" class="btn-win btn-primary">Save Changes</button>
+                    <button id="btn-cancel-settings" class="btn-win">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Log Viewer Modal -->
+        <div id="modal-logs" class="win-modal-overlay hidden">
+            <div class="win-modal win-modal-large logs-modal">
+                <div class="win-modal-header">
+                    <div class="modal-title">Log Viewer</div>
+                    <button class="modal-close-btn" id="btn-close-logs">&times;</button>
+                </div>
+
+                <div class="logs-toolbar">
+                    <div class="log-tabs">
+                        <button class="log-tab active" data-log="apache-error">Apache Error</button>
+                        <button class="log-tab" data-log="apache-access">Apache Access</button>
+                        <button class="log-tab" data-log="mysql-error">MySQL Error</button>
+                        <button class="log-tab" data-log="devstation">LAMPS</button>
+                    </div>
+                    <div class="log-actions">
+                        <button id="btn-refresh-log" class="btn-win btn-small" title="Refresh log">Refresh</button>
+                        <button id="btn-copy-log" class="btn-win btn-small" title="Copy to clipboard">Copy</button>
+                        <button id="btn-clear-log" class="btn-win btn-small" title="Clear log view">Clear</button>
+                        <button id="btn-open-log-dir" class="btn-win btn-small" title="Open log folder in Explorer">Open Folder</button>
+                    </div>
+                </div>
+
+                <div class="logs-body">
+                    <pre id="log-content-box" class="log-content-box">Loading logs...</pre>
+                </div>
+
+                <div class="win-modal-footer logs-footer">
+                    <span id="log-file-info" class="log-info-text">Showing latest log entries</span>
+                    <button id="btn-done-logs" class="btn-win">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHP Extensions Modal -->
+        <div id="modal-extensions" class="win-modal-overlay hidden">
+            <div class="win-modal win-modal-medium">
+                <div class="win-modal-header">
+                    <div class="modal-title" id="extensions-modal-title">Loaded PHP Extensions</div>
+                    <button class="modal-close-btn" id="btn-close-extensions">&times;</button>
+                </div>
+                <div class="modal-body-padded">
+                    <div class="search-row">
+                        <input type="text" id="ext-search-input" class="win-input" placeholder="Search extension (e.g. curl, pdo, gd)...">
+                        <span id="ext-count-badge" class="count-badge">0 modules</span>
+                    </div>
+                    <div id="extensions-grid" class="extensions-grid"></div>
+                </div>
+                <div class="win-modal-footer">
+                    <button id="btn-done-extensions" class="btn-win btn-primary">Done</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Port Conflict Modal -->
+        <div id="modal-conflict" class="win-modal-overlay hidden">
+            <div class="win-modal win-modal-small">
+                <div class="win-modal-header modal-header-warning">
+                    <div class="modal-title">⚠️ Port Conflict Detected</div>
+                    <button class="modal-close-btn" id="btn-close-conflict">&times;</button>
+                </div>
+                <div class="modal-body-padded">
+                    <p id="conflict-message" class="conflict-msg">
+                        Port 80 is already being used by another process.
+                    </p>
+                    <div class="conflict-details-box">
+                        <div><strong>Port:</strong> <span id="conflict-port">80</span></div>
+                        <div><strong>Process:</strong> <span id="conflict-proc">System</span></div>
+                        <div><strong>PID:</strong> <span id="conflict-pid">4</span></div>
+                    </div>
+                    <p class="input-tip">You can switch this service to a free alternative port, or terminate the conflicting process if authorized.</p>
+                </div>
+                <div class="win-modal-footer">
+                    <button id="btn-use-alt-port" class="btn-win btn-primary">Use Another Port (<span id="alt-port-num">8080</span>)</button>
+                    <button id="btn-kill-conflict" class="btn-win btn-danger" title="Terminate conflicting process">End Process</button>
+                    <button id="btn-cancel-conflict" class="btn-win">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Generic Info/Prompt Dialog Modal -->
+        <div id="modal-info" class="win-modal-overlay hidden">
+            <div class="win-modal win-modal-small">
+                <div class="win-modal-header">
+                    <div class="modal-title" id="info-modal-title">Information</div>
+                    <button class="modal-close-btn" id="btn-close-info">&times;</button>
+                </div>
+                <div class="modal-body-padded">
+                    <pre id="info-modal-content" class="info-content-pre"></pre>
+                </div>
+                <div class="win-modal-footer">
+                    <button id="btn-done-info" class="btn-win btn-primary">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Progress Modal -->
+        <div id="modal-download" class="win-modal-overlay hidden">
+            <div class="win-modal win-modal-small">
+                <div class="win-modal-header">
+                    <div class="modal-title" id="download-modal-title">Downloading Package...</div>
+                </div>
+                <div class="modal-body-padded">
+                    <div style="font-weight: 600; margin-bottom: 8px;" id="download-pkg-title">PHP 8.4</div>
+                    <div class="progress-bar-container">
+                        <div id="download-progress-bar" class="progress-bar-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="download-stats-row">
+                        <span id="download-status-text">Connecting...</span>
+                        <span id="download-speed-text">0 KB/s</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notifications Container -->
+        <div id="toast-container" class="toast-container"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

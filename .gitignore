@@ -1,0 +1,55 @@
+# ── Dependencies ──────────────────────────────────────────────────────────────
+node_modules/
+
+# ── Build output ──────────────────────────────────────────────────────────────
+dist/
+out/
+build/
+release/
+*.exe
+*.dmg
+*.deb
+*.rpm
+*.AppImage
+*.snap
+*.blockmap
+
+# ── Electron / native build artifacts ─────────────────────────────────────────
+.webpack/
+.vite/
+
+# ── Bundled binaries (large — users download/install separately) ───────────────
+# Comment these out if you DO want to ship them in the repo
+bin/apache/
+bin/mysql/
+bin/php/
+
+# ── User runtime data ─────────────────────────────────────────────────────────
+data/
+logs/
+*.log
+
+# ── OS files ──────────────────────────────────────────────────────────────────
+Thumbs.db
+Desktop.ini
+.DS_Store
+ehthumbs.db
+
+# ── Editor / IDE ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.user
+*.sublime-project
+*.sublime-workspace
+
+# ── Environment / secrets ─────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+secrets.json
+
+# ── Temp files ────────────────────────────────────────────────────────────────
+*.tmp
+*.temp
+~$*
