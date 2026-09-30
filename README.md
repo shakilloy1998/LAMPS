@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![LAMPS Logo](src/renderer/assets/icon.png)
+![LAMPS Logo](assets/icons/logo.png)
 
 **A lightweight, modern Electron-based development environment manager for Windows.**  
 Manage Apache, MySQL/MariaDB, and PHP — multiple versions, zero configuration headaches.
