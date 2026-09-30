@@ -8,7 +8,7 @@
 Manage Apache, MySQL/MariaDB, and PHP — multiple versions, zero configuration headaches.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows-0078d6.svg)](https://github.com/YOUR_USERNAME/LAMPS/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows-0078d6.svg)](https://github.com/shakilloy1998/LAMPS/releases)
 [![Electron](https://img.shields.io/badge/Electron-44-47848f.svg)](https://electronjs.org)
 [![PHP](https://img.shields.io/badge/PHP-7.4%20%7C%208.1%20%7C%208.5-777bb4.svg)](https://php.net)
 
@@ -40,7 +40,7 @@ Manage Apache, MySQL/MariaDB, and PHP — multiple versions, zero configuration 
 
 ### Download the Installer (Recommended)
 
-Download the latest `LAMPS-Setup-x.x.x.exe` from the [**Releases**](https://github.com/YOUR_USERNAME/LAMPS/releases) page and run it.
+Download the latest `LAMPS-Setup-x.x.x.exe` from the [**Releases**](https://github.com/shakilloy1998/LAMPS/releases) page and run it.
 
 ### Build from Source
 
@@ -51,7 +51,7 @@ Download the latest `LAMPS-Setup-x.x.x.exe` from the [**Releases**](https://gith
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/LAMPS.git
+git clone https://github.com/shakilloy1998/LAMPS.git
 cd LAMPS
 
 # Install dependencies
@@ -117,13 +117,13 @@ Contributions are welcome! Please:
 4. Push to the branch: `git push origin feature/my-feature`
 5. Open a **Pull Request**
 
-Please open an [issue](https://github.com/YOUR_USERNAME/LAMPS/issues) first for large changes.
+Please open an [issue](https://github.com/shakilloy1998/LAMPS/issues) first for large changes.
 
 ---
 
 ## 🐛 Reporting Bugs
 
-Open an [issue](https://github.com/YOUR_USERNAME/LAMPS/issues) and include:
+Open an [issue](https://github.com/shakilloy1998/LAMPS/issues) and include:
 - Your Windows version
 - LAMPS version (shown in title bar)
 - Steps to reproduce
